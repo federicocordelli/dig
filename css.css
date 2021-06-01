@@ -10,6 +10,7 @@ css document
   padding: 10px 15px;
   text-align: center;
   text-decoration: none;
+  transform-origin: center;
   display: inline-block;
   font-size: 15px;
   border-radius: 50%;
@@ -31,7 +32,7 @@ css document
   background-color: #F8F1DB; /* Green */
   border: 1px solid black;
   color: black;
-  padding: 5px 10px;
+  padding: 10px 15px;
   text-align: center;
   text-decoration: none;
   display: inline-block;
@@ -84,7 +85,7 @@ a:active {
   text-align: center;
   text-decoration: none;
   display: inline-block;
-  font-size: 45px;
+  font-size: 25px;
   border-radius: 12px;
 }
 .button23:hover {
@@ -95,6 +96,6 @@ a:active {
   text-align: center;
   text-decoration: none;
   display: inline-block;
-  font-size: 45px;
+  font-size: 25px;
   border-radius: 12px;
 }

@@ -43,41 +43,56 @@ function setup() {
 
   //Button To Reset
   button = createButton('HOME');
-  button.position(width-200, 70);
+  button.position(width-500, 65);
+  button.mouseClicked(homy);
+  button.addClass('button');
+
+  button = createButton('RESTART');
+  button.position(width-300, 65);
   button.mouseClicked(resizety);
   button.addClass('button');
 
-  button = createButton('CURSOR');
-  button.position(width-320, 70);
-  button.mouseClicked(resizety);
-  button.addClass('button');
-
+  /*
   button = createButton('SCREEN');
   button.position(width-440, 70);
   button.mouseClicked(savability);
   button.addClass('button');
+  */
 
-  button = createButton('PLAY');
-  button.position(width-530, 70);
-  button.mouseClicked(musicplease);
-  button.addClass('button');
+  buttonP = createButton('PLAY');
+  buttonP.position(width-395, 65);
+  buttonP.mouseClicked(togglePlaying);
+  buttonP.addClass('button');
 
+  buttonA = createButton('PAUSE');
+  buttonA.position(width-400, 65);
+  buttonA.mouseClicked(togglePlaying);
+  buttonA.addClass('buttonUsed');
+
+
+
+  /*
   button = createButton('PAUSE');
-  button.position(width-630, 70);
+  button.position(width-410, 65);
   button.mouseClicked(pleasemusic);
   button.addClass('button');
+  */
 
+/*
   //first choice left
   buttonL = createButton('←');
   buttonL.position(100, height-80);
   buttonL.mouseClicked(lefty);
   buttonL.addClass('button');
+*/
 
+/*
   //first choice right
   buttonR = createButton('→');
   buttonR.position(width - 190, height-80);
   buttonR.mouseClicked(lefty);
   buttonR.addClass('button');
+*/
 
 /*
   link = createA("https://www.behance.net/Federico_cordelli?isa0=1","behance", "_blank");
@@ -89,27 +104,27 @@ function setup() {
 */
 
  buttonL = createButton('shepherd');
- buttonL.position(450, 254);
+ buttonL.position(293, 273);
  buttonL.mouseClicked(lefty);
  buttonL.addClass('button23');
 
  buttonL = createButton('sheep');
- buttonL.position(483, 367);
+ buttonL.position(314, 335.5);
  buttonL.mouseClicked(lefty1);
  buttonL.addClass('button23');
 
  buttonL = createButton('ewes');
- buttonL.position(463, 592);
+ buttonL.position(300, 460);
  buttonL.mouseClicked(lefty1);
  buttonL.addClass('button23');
 
  buttonL = createButton('lambs');
- buttonL.position(450, 535);
+ buttonL.position(293, 430);
  buttonL.mouseClicked(lefty1);
  buttonL.addClass('button23');
 
  buttonL = createButton('follow');
- buttonL.position(280, 367);
+ buttonL.position(198, 335.5);
  buttonL.mouseClicked(lefty2);
  buttonL.addClass('button23');
 
@@ -176,7 +191,7 @@ push();
   fill('black');
   textAlign(LEFT);
   textFont(corpusFont);
-  textSize(45);
+  textSize(25);
   //text(karma, width/2, height/2);
   text("How sweet is the shepherd’s sweet lot!\nFrom the morn to the evening he strays;\nHe shall follow his sheep all the day,\nAnd his tongue shall be fillèd with praise.\n\nFor he hears the lambs’ innocent call,\nAnd he hears the ewes’ tender reply;\nHe is watchful while they are in peace,\nFor they know when their shepherd is nigh.", 100, 300);
 pop();
@@ -196,7 +211,7 @@ push();
   textFont(titleFont);
   textSize(15);
   //text(karma, width/2, height/2);
-  text("WILLIAM BLAKE", 100, 65);
+  text("WILLIAM BLAKE", windowWidth/16, 65);
 pop();
 
 
@@ -212,8 +227,8 @@ push();
   textFont(titleFont);
   textAlign(LEFT);
   fill('black');
-  textSize(130);
-  text("THE SHEPHERD", 100, 170);
+  textSize(100);
+  text("THE SHEPHERD", windowWidth/16, 170);
 pop();
 
 
@@ -230,6 +245,7 @@ function resizety() {
   document.location.reload();
   return false;
 }
+
 
 
 
@@ -257,6 +273,7 @@ function lefty2() {
   }
 }
 
+/*
 function musicplease() {
   mySound.play();
 }
@@ -264,7 +281,24 @@ function musicplease() {
 function pleasemusic() {
   mySound.pause();
 }
+*/
 
+function togglePlaying() {
+  if (!mySound.isPlaying()) {
+    mySound.play();
+    buttonP.removeClass("button");
+    buttonP.addClass("buttonUsed");
+    buttonA.removeClass("buttonUsed");
+    buttonA.addClass("button");
+  } else {
+    mySound.pause();
+    buttonP.removeClass("buttonUsed");
+    buttonP.addClass("button");
+    buttonA.removeClass("button");
+    buttonA.addClass("buttonUsed");
+
+  }
+}
 
 function openy() {
 
@@ -280,7 +314,15 @@ function windowResized() {
   return false;
 }
 
+function homy() {
+  window.open("https://federicocordelli.github.io/DIG-HOME/");
+  //resizeCanvas(displayWidth, displayHeight, WEBGL);
+
+  // return false;
+}
+/*
 function savability() {
   saveCanvas('Blake_Shephard', 'png');
   return false;
 }
+*/
